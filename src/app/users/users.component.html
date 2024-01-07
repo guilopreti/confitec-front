@@ -1,0 +1,52 @@
+<h1>Usuários</h1>
+
+<button (click)="openCreateUserModal()">Criar</button>
+
+<div *ngIf="createUserModalVisible">
+  <form action="">
+    <input type="text" name="nome" [(ngModel)]="newUser.nome" placeholder="Nome">
+    <input type="text" name="sobrenome" [(ngModel)]="newUser.sobrenome" placeholder="Sobrenome">
+    <input type="email" name="email" [(ngModel)]="newUser.email" placeholder="Email">
+    <input type="date" name="dataNascimento" [(ngModel)]="newUser.dataNascimento">
+    <select [(ngModel)]="newUser.escolaridade" name="escolaridade" id="escolaridade">
+      <option *ngFor="let option of escolaridadeOptions" [ngValue]="option">
+        {{option}}
+      </option>
+    </select>
+  </form>
+  <button (click)="confirmCreateUser()">Confirmar</button>
+  <button (click)="closeCreateUserModal()">Cancelar</button>
+</div>
+
+<ul>
+  <li *ngFor="let user of users">
+    <span>{{user.nome}} {{user.sobrenome}}</span>
+    <span>{{user.email}}</span>
+    <span>{{user.dataNascimento | date:'dd/MM/yyyy'}}</span>
+    <span>{{user.escolaridade}}</span>
+    <button (click)="openEditUserModal(user)">Alterar</button>
+    <button (click)="openDeleteUserModal(user)">Deletar</button>
+  </li>
+</ul>
+
+<div *ngIf="editUserModalVisible">
+  <form action="">
+    <input type="text" name="nome" [(ngModel)]="userToEdit.nome">
+    <input type="text" name="sobrenome" [(ngModel)]="userToEdit.sobrenome">
+    <input type="email" name="email" [(ngModel)]="userToEdit.email">
+    <input type="date" name="dataNascimento" [(ngModel)]="userToEdit.dataNascimento">
+    <select [(ngModel)]="userToEdit.escolaridade" name="escolaridade" id="escolaridade">
+      <option *ngFor="let option of escolaridadeOptions" [value]="option">
+        {{option}}
+      </option>
+    </select>
+  </form>
+  <button (click)="confirmeEditUser()">Confirmar</button>
+  <button (click)="closeEditUserModal()">Cancelar</button>
+</div>
+
+<div *ngIf="deleteUserModalVisible">
+  <p>Tem certeza que deseja deletar o usuário {{userToDelete?.nome}}?</p>
+  <button (click)="confirmDeleteUser()">Confirmar</button>
+  <button (click)="closeDeleteUserModal()">Cancelar</button>
+</div>
