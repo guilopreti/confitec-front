@@ -23,7 +23,6 @@ export class UserService {
   }
 
   createUser(user: any) {
-    console.log(user);
     return this.http.post(`${this.server_url}/users`, user);
   }
 }

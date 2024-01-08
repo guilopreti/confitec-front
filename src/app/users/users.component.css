@@ -1,0 +1,106 @@
+h1 {
+  color: #ff9b36;
+  margin: 0;
+  padding-top: 25px;
+}
+
+button {
+  margin: 15px 0px;
+  border: none;
+  background-color: #ff9b36;
+  color: #fff;
+  border-radius: 20px;
+  padding: 10px;
+  width: 80px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(0.9);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding-bottom: 15px;
+}
+
+li {
+  border: 2px solid #ff9b36;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  align-items: center;
+  gap: 10px;
+  padding-top: 10px;
+  max-width: 400px;
+  border-radius: 8px;
+}
+
+li div {
+  display: flex;
+  width: 100%;
+  gap: 15px;
+  justify-content: space-evenly;
+}
+
+.delete-button {
+  background-color: #abb8c3;
+}
+
+.modal-section {
+  display: flex;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-div {
+  background: #fff;
+  max-width: 400px;
+  width: 96%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+}
+
+.modal-div form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 15px;
+}
+
+.modal-div input {
+  border: 2px solid #ff9b36;
+  border-radius: 15px;
+  padding: 5px;
+}
+
+.modal-div select {
+  border: 2px solid #ff9b36;
+  border-radius: 15px;
+  padding: 5px;
+}
+
+.modal-div div {
+  display: flex;
+  gap: 15px;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.modal-div button {
+  width: 100px;
+}

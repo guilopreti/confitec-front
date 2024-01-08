@@ -43,7 +43,6 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getUsers().subscribe((response: Object) => {
-      console.log(response);
       if (Array.isArray(response)) {
         this.users = response;
       } else {
@@ -55,6 +54,7 @@ export class UsersComponent implements OnInit {
   openEditUserModal(user: Usuario) {
     this.userToEdit = { ...user };
     this.editUserModalVisible = true;
+    document.body.classList.add('modal-open');
   }
 
   closeEditUserModal() {
@@ -68,6 +68,7 @@ export class UsersComponent implements OnInit {
       escolaridade: '',
       isDelted: false,
     };
+    document.body.classList.remove('modal-open');
   }
 
   confirmeEditUser() {
@@ -75,6 +76,7 @@ export class UsersComponent implements OnInit {
       this.service.updateUser(this.userToEdit).subscribe((response) => {
         console.log('Usuário atualizado: ', response);
         this.closeEditUserModal();
+        location.reload();
       });
     }
   }
@@ -82,11 +84,13 @@ export class UsersComponent implements OnInit {
   openDeleteUserModal(user: Usuario) {
     this.userToDelete = user;
     this.deleteUserModalVisible = true;
+    document.body.classList.add('modal-open');
   }
 
   closeDeleteUserModal() {
     this.deleteUserModalVisible = false;
     this.userToDelete = null;
+    document.body.classList.remove('modal-open');
   }
 
   confirmDeleteUser() {
@@ -94,22 +98,26 @@ export class UsersComponent implements OnInit {
       this.service.deleteUser(this.userToDelete.id).subscribe((response) => {
         console.log('Usuário deletado: ', response);
         this.closeDeleteUserModal();
+        location.reload();
       });
     }
   }
 
   openCreateUserModal() {
     this.createUserModalVisible = true;
+    document.body.classList.add('modal-open');
   }
 
   closeCreateUserModal() {
     this.createUserModalVisible = false;
+    document.body.classList.remove('modal-open');
   }
 
   confirmCreateUser() {
     this.service.createUser(this.newUser).subscribe((response) => {
       console.log('Novo usuário criado: ', response);
       this.closeCreateUserModal();
+      location.reload();
     });
   }
 }
